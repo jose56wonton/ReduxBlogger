@@ -1,2 +1,1 @@
-# ReduxBlogger
-This is a Blogging site that I am using to learn about Redux forms and more about react router!
+This is an app I am using to learn more about react router and redux form
