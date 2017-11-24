@@ -19,21 +19,29 @@ class PostsShow extends Component{
     const {post} = this.props;
     console.log(post);
     if(!post){
-      return <div>Loading...</div>;
+      return <div className="progress">
+        <div className="indeterminate"></div>
+      </div>
     }
     return(
       <div>
-        <Link to="/" >Back to Index</Link>
-        <button 
-          className="btn btn-danger pull-xs-right"
-          onClick={this.onDeleteClick.bind(this)}
-        >
-        Delete Post
-        </button>
-        <h3>{post.title}</h3>
-        <h6>Categories: {post.categories}</h6>
-        <p>{post.content}</p>
+        <div className="navbar-fixed">
+          <nav>
+            <div className="container nav-wrapper">
+              <Link className="brand-logo" to="/">ReduxBlogger</Link>
+              <ul id="nav-mobile" className="right ">
+                <li><a onClick={this.onDeleteClick.bind(this)}> Delete Post</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div className="container">
+            <h3>{post.title}</h3>
+            <h6>Categories: {post.categories}</h6>
+            <p>{post.content}</p>
+        </div>
       </div>
+      
     )
   }
 }

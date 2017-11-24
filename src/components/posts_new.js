@@ -7,14 +7,12 @@ import {createPost} from '../actions';
 class PostsNew extends Component{
 
   //touched is used to identify if the form has been changed
-  renderField(field){
+  renderTextField(field){
     const {meta: {touched, error} } = field;
-    const className = `form-group ${touched && error ? 'has-danger' : ''}`;
     return(
-        <div className={className}>
-          <label>{field.label}</label>
+        <div >
+        <label  >{field.label}</label>
           <input 
-            className="form-control"
             type="text"
             {...field.input}
           />
@@ -38,30 +36,44 @@ class PostsNew extends Component{
     // Then it sends it to our helper onSubmit to console.log() or whatever
     // <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
     return(
+
       <div>
-        
-        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-          <Field
-            label="Title"
-            name="title"
-            component={this.renderField}
-
-          />
-          <Field
-            label="Categories"
-            name="categories"
-            component={this.renderField}
-
-          />
-          <Field
-            label="Contents"
-            name="contents"
-            component={this.renderField}
-
-          />
-          <button type="submit" className="btn btn-primary">Submit</button>
-          <Link to="/" className="btn btn-danger">Cancel</Link>
-        </form>
+        <div classNames="navbar-fixed">
+          <nav>
+            <div className="container nav-wrapper">
+              <Link className="brand-logo" to="/">ReduxBlogger</Link>
+              
+            </div>
+          </nav>
+        </div>
+        <div className="container row">
+          <form className="col s12" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+            <div className="row">
+              <div className="col s6">
+                <Field
+                  label="Title"
+                  name="title"
+                  component={this.renderTextField}
+                />
+              </div>
+              <div className="col s6">
+                <Field
+                  label="Categories"
+                  name="categories"
+                  component={this.renderTextField}
+                />
+              </div> 
+            </div>
+            <Field
+              label="Content"
+              name="content"
+              component={this.renderTextField}
+            />
+            <button type="submit" className="waves-effect waves-light btn ">Submit</button>
+            
+            <Link to="/" className="waves-effect waves-light btn ">Cancel</Link>
+          </form>
+        </div>
       </div>
     )
   }
@@ -76,8 +88,8 @@ function validate(values){
   if (!values.categories){
     errors.categories = 'Enter some categories';
   }
-  if(!values.contents){
-    errors.contents = 'Enter some content please';
+  if(!values.content){
+    errors.content = 'Enter some content please';
   }
   //if errors is  empty, the form is fine to submit
   //if errors has any props the redux  form assumes the form is invalid

@@ -5,9 +5,9 @@ This is a very simple app I made since I am learning Redux. It is kinda a bloggi
 ## Libraries used
 
 * [React.js](https://reactjs.org/) (for SAPP framework)
-* [Redux](https://momentjs.com/) (for redux stuff :D)
+* [Redux](https://redux.js.org/) (for redux stuff :D)
 * [Axios](https://github.com/axios/axios) (for AJAX)
-* [Milligram](https://bulma.io/) (for CSS framework)
+* [Milligram](https://milligram.io/) (for CSS framework)
 
 ## Hosting
 
